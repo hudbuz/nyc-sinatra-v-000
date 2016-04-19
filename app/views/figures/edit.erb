@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit Figure</title>
+</head>
+<body>
+
+<h1>Edit <%=@figure.name%></h1>
+
+<form action="/figures/<%=@figure.id%>" method="POST">
+
+  <label for:"figure_name">Name:
+  
+
+  
+  <input type="text" id="figure_name"   name="figure[name]" ></label>
+  
+  <br></br>
+  <h3>Select Landmark</h3><br>
+  <% @landmarks.each do |landmark|%>
+    <input type="checkbox" id="landmark_<%=landmark.id%>" name="figure[landmark_ids][]"  value="<%=landmark.id%>"  ><%=landmark.name%></input><br>
+  <%end%>
+
+  <label>and/or, create a new Landmark:</label>
+  <br></br>
+  <label for="Landmark Name">Landmark Name:
+  <input  type="text"  id="new_landmark" name="landmark[name]" ></input></label>
+  <label for="Completion Year">Completion Year:
+  <input  type="text"  id="Completion Year" name="completion_year" ></input></label>
+  <br></br>
+
+  <br></br>
+  <h3>Select Title</h3>
+  <% @titles.each do |title|%>
+    <input type="checkbox" name="figure[title_ids][]" value="<%=title.id%>" id="title_<%=title.id%>"><%=title.name%></input><br>
+  <%end%>
+
+  <label>and/or, create a new title:</label>
+  <br></br>
+  <label>Title Name:</label>
+  <input  type="text" name="title[name]" id="new_title"></input>
+  <br></br>
+
+  <input type="submit" value="Edit Figure">
+</form>
+</body>
+</html>
+

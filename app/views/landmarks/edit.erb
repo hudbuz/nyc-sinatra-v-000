@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>Edit a Landmark</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>     Year Completed</th>
+  </tr>
+  <tr>
+    <td><%= @landmark.name %></td>
+    <td><%=     @landmark.year_completed %></td>
+  </tr>
+<table>
+
+<form action="/landmarks/<%=@landmark.id%>" method="POST">
+  <label for:"Name">Name:
+  
+  
+  
+  <input type="text" id="name"  name="landmark[name]" ></label><br>
+
+  <label for:"year_completed">Year Completed:
+  
+
+  
+  <input type="text" id="year_completed"  name="landmark[year_completed]" ></label>
+  <br>
+
+
+
+  
+  
+
+  <input type="submit" value="Edit Landmark">
+</form>
+
+
+</body>
+</html>
+

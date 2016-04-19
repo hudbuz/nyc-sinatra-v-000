@@ -32,6 +32,7 @@ describe FiguresController do
     check "title_#{Title.first.id}"
     click_button "Create New Figure"
     figure = Figure.last
+
     expect(Figure.all.count).to eq(3)
     expect(figure.name).to eq("Doctor Who")
     expect(figure.titles).to include(Title.first)
@@ -110,6 +111,7 @@ describe FiguresController do
     click_button "Edit Figure"
     @figure = Figure.first
     expect(page.current_path).to eq("/figures/#{@figure.id}")
+
     expect(page.body).to include(@figure.name)    
 
     expect(page.body).to include("Big Tower")
